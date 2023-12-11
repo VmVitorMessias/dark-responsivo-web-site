@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+:root {
+
+    --title-color: hsl(0, 0%, 100%);
+    --shadow-color: hsla(0, 0%, 0%, 0.5);
+
+    --body-font: "Roboto", sans-serif;
+    --biggest-font-size: 2.5rem;
+    --h2-font-size: 1.25rem;
+
+    --font-regular: 400;
+
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-position: center;
+    height: 100vh;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.dark__image{
+    margin: 0;
+    padding: 0;
+    z-index:-200;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+}
+header {
+    display: flex;
+    padding: 1.5rem 3rem;
+    background-color: var(--shadow-color);
+    height: 14vh;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo,
+ul a {
+    color: var(--title-color);
+    font-weight: var(--font-regular);
+}
+
+.logo {
+    font-size: var(--biggest-font-size);
+}
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 2.5rem;
+}
+
+ul a {
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-regular);
+
+}
+
+ul a:hover {
+    color: hsl(0, 1%, 65%);
+    transition: color .3s;
+}
+
+ul a span {
+    background-color: hsl(0, 1%, 28%);
+    padding: .50rem;
+    border-radius: 2px;
+
+}
+
+.nav__menu {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    row-gap: 7px;
+    right: 3rem;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    display: none;
+}
+
+.bar {
+    background-color: var(--title-color);
+    height: 2px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 970px) {
+    body {
+        background-size: cover;
+        overflow-x: hidden;
+    }
+
+    .nav__menu {
+        display: flex;
+    }
+
+    ul {
+        flex-direction: column;
+        position: absolute;
+        top: 14vh;
+        right: -100%;
+        background-color: var(--shadow-color);
+        height: 86vh;
+        width: 100%;
+        align-items: center;
+    }
+
+    .show-menu {
+        right: 0%;
+        transition: right 0.4s;
+    }
+
+    .active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .active .bar:first-child {
+        transform: rotate(-45deg) translate(-5px, 9px);
+        transition: transform 0.4s;
+    }
+
+    .active .bar:last-child {
+        transform: rotate(45deg) translate(-5px, -9px);
+        transition: transform 0.4s;
+    }
+}
